@@ -1,5 +1,5 @@
 // imports
-importScripts('js/sw-utils.js');
+// importScripts('js/sw-utils.js');
 
 
 const STATIC_CACHE = 'static-v1';
@@ -75,7 +75,27 @@ self.addEventListener('activate', e => {
 });
 
 
+// Guardar y actualizar en el cache dinamico
+function actualizaCacheDinamico(dynamicCache, req, res) {
 
+
+    if (res.ok) {
+
+        return caches.open(dynamicCache).then(cache => {
+
+            cache.put(req, res.clone());
+
+            return res.clone();
+
+        });
+
+    } else {
+        return res;
+    }
+
+
+
+}
 
 
 self.addEventListener('fetch', e => {
