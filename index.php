@@ -1,3 +1,10 @@
+<html>
+<body>
+
+<<head>
+<link rel="manifest" href="manifest.json">
+</head>
+    
 <?php
 
 /**
@@ -59,8 +66,6 @@ $response->send();
 
 $kernel->terminate($request, $response);
 ?>
-<html>
-<body>
 <script src="js/jquery.js"></script>
 <script src="js/app.js"></script>
 </body>    
